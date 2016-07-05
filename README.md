@@ -3,7 +3,7 @@
 
 ##Language basics
 
-For logical expressions means `false` and anything else means `true`. <br />
+For logical expressions 0 means `false` and anything else means `true`. <br />
 `E := (E)` <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E < E | E > E | E = E | E <= E | E >= E` (these result in true / false expressiion) <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E + E | E - E | E * E | E / E` <br />
