@@ -5,12 +5,12 @@
 
 `false` is 0, `true` is anything else <br />
 `E := (E)` <br />
-...`| E < E | E > E | E = E | E <= E | E >= E` (these result in true / false expressiion) <br />
-...`| E + E | E - E | E * E | E / E` <br />
-...`| if E then E else E` <br />
-...`| funcName(args, ...)` <br />
-...`| NUM | ID` <br />
-...`| E;` <br />
+&nbsp;&nbsp;&nbsp;`| E < E | E > E | E = E | E <= E | E >= E` (these result in true / false expressiion) <br />
+&nbsp;&nbsp;&nbsp;`| E + E | E - E | E * E | E / E` <br />
+&nbsp;&nbsp;&nbsp;`| if E then E else E` <br />
+&nbsp;&nbsp;&nbsp;`| funcName(args, ...)` <br />
+&nbsp;&nbsp;&nbsp;`| NUM | ID` <br />
+&nbsp;&nbsp;&nbsp;`| E;` <br />
 
 Function declarations have the form <br />
 `fun funcName(args, ...) = E;` <br />
