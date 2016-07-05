@@ -5,12 +5,12 @@
 
 For logical expressions means `false` and anything else means `true`. <br />
 `E := (E)` <br />
-`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| E < E | E > E | E = E | E <= E | E >= E` (these result in true / false expressiion) <br />
-`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| E + E | E - E | E * E | E / E` <br />
-`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| if E then E else E` <br />
-`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| funcName(args, ...)` <br />
-`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| NUM | ID` <br />
-`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| E;` <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E < E | E > E | E = E | E <= E | E >= E` (these result in true / false expressiion) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E + E | E - E | E * E | E / E` <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| if E then E else E` <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| funcName(args, ...)` <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| NUM | ID` <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E;` <br />
 
 Function declarations have the form <br />
 `fun funcName(args, ...) = E;` <br />
