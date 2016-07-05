@@ -1,0 +1,11 @@
+2+4/2-1*(2/2-1);
+fun fact(n)=if n<=1 then 1 else n*fact(n-1);
+fun Sum(N)=if N=1 then 1 else N+Sum(N-1);
+fun func(x,y)=1+(if x+y<3 then 3 else if x=4 then 0 else 1)+x-y;
+fact(4);
+fact(4+6);
+Sum(10);
+fact(Sum(3));
+func(3,0);
+func(3,1);
+func(4,0-1);

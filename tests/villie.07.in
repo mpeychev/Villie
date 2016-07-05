@@ -1,0 +1,13 @@
+100-5*6-7*8;
+fun pointless(n)=if n=0 then 37 else pointless(n-1);
+pointless(10);
+pointless(100);
+pointless(1000);
+pointless(490000);
+if 31<=50 then 4 else 5;
+if 31>=50 then 4 else 5;
+if 31=50 then 3 else 6;
+1+(if 31<=31 then 3 else 4);
+if 31<50 then 0-1 else 0-2;
+if 31>50 then 0-1 else 0-2;
+if 1+2+3+4=100-90+11000*0 then 10 else 0;
