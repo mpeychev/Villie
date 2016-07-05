@@ -5,7 +5,7 @@
 
 For logical expressions 0 means `false` and anything else means `true`. <br />
 `E := (E)` <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E < E | E > E | E = E | E <= E | E >= E` (these result in true / false expressiion) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E < E | E > E | E = E | E <= E | E >= E` (these result in true / false expression) <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E + E | E - E | E * E | E / E` <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| if E then E else E` <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| funcName(args, ...)` <br />
