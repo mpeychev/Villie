@@ -10,7 +10,6 @@ For logical expressions 0 means `false` and anything else means `true`. <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| if E then E else E` <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| funcName(args, ...)` <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| NUM | ID` <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E;` <br />
 
 Function declarations have the form <br />
 `fun funcName(args, ...) = E;` <br />
