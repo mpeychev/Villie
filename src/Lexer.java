@@ -12,131 +12,130 @@ public class Lexer {
   static private Pattern digitsPattern = Pattern.compile("\\d+");
   static private Pattern lettersPattern = Pattern.compile("[a-zA-Z]+");
 
-  public interface Lexeme {}
+  public static class Lexeme {
+    protected String type;
 
-  public static class LPar implements Lexeme {
+    public Lexeme(String type) {
+      this.type = type;
+    }
+
+    public String getType() {
+      return type;
+    }
+
     @Override
     public String toString() {
-      return "(";
+      return type;
     }
   }
 
-  public static class RPar implements Lexeme {
-    @Override
-    public String toString() {
-      return ")";
+  public static class LPar extends Lexeme {
+    public LPar() {
+      super("(");
     }
   }
 
-  public static class Less implements Lexeme {
-    @Override
-    public String toString() {
-      return "<";
+  public static class RPar extends Lexeme {
+    public RPar() {
+      super(")");
     }
   }
 
-  public static class Greater implements Lexeme {
-    @Override
-    public String toString() {
-      return ">";
+  public static class Less extends Lexeme {
+    public Less() {
+      super("<");
     }
   }
 
-  public static class Equal implements Lexeme {
-    @Override
-    public String toString() {
-      return "=";
+  public static class Greater extends Lexeme {
+    public Greater() {
+      super(">");
     }
   }
 
-  public static class LessOrEqual implements Lexeme {
-    @Override
-    public String toString() {
-      return "<=";
+  public static class Equal extends Lexeme {
+    public Equal() {
+      super("=");
     }
   }
 
-  public static class GreaterOrEqual implements Lexeme {
-    @Override
-    public String toString() {
-      return ">=";
+  public static class LessOrEqual extends Lexeme {
+    public LessOrEqual() {
+      super("<=");
     }
   }
 
-  public static class Plus implements Lexeme {
-    @Override
-    public String toString() {
-      return "+";
+  public static class GreaterOrEqual extends Lexeme {
+    public GreaterOrEqual() {
+      super(">=");
     }
   }
 
-  public static class Minus implements Lexeme {
-    @Override
-    public String toString() {
-      return "-";
+  public static class Plus extends Lexeme {
+    public Plus() {
+      super("+");
     }
   }
 
-  public static class Mult implements Lexeme {
-    @Override
-    public String toString() {
-      return "*";
+  public static class Minus extends Lexeme {
+    public Minus() {
+      super("-");
     }
   }
 
-  public static class Div implements Lexeme {
-    @Override
-    public String toString() {
-      return "/";
+  public static class Mult extends Lexeme {
+    public Mult() {
+      super("*");
     }
   }
 
-  public static class If implements Lexeme {
-    @Override
-    public String toString() {
-      return "IF";
+  public static class Div extends Lexeme {
+    public Div() {
+      super("/");
     }
   }
 
-  public static class Then implements Lexeme {
-    @Override
-    public String toString() {
-      return "THEN";
+  public static class If extends Lexeme {
+    public If() {
+      super("IF");
     }
   }
 
-  public static class Else implements Lexeme {
-    @Override
-    public String toString() {
-      return "ELSE";
+  public static class Then extends Lexeme {
+    public Then() {
+      super("THEN");
     }
   }
 
-  public static class Fun implements Lexeme {
-    @Override
-    public String toString() {
-      return "FUN";
+  public static class Else extends Lexeme {
+    public Else() {
+      super("ELSE");
     }
   }
 
-  public static class SemiColon implements Lexeme {
-    @Override
-    public String toString() {
-      return ";";
+  public static class Fun extends Lexeme {
+    public Fun() {
+      super("FUN");
     }
   }
 
-  public static class Comma implements Lexeme {
-    @Override
-    public String toString() {
-      return ",";
+  public static class SemiColon extends Lexeme {
+    public SemiColon() {
+      super(";");
     }
   }
 
-  public static class Num implements Lexeme {
+  public static class Comma extends Lexeme {
+    public Comma() {
+      super(",");
+    }
+  }
+
+  public static class Num extends Lexeme {
     private int value;
 
     public Num(int value) {
+      super("NUM");
       this.value = value;
     }
 
@@ -146,14 +145,15 @@ public class Lexer {
 
     @Override
     public String toString() {
-      return "NUM(" + value + ")";
+      return type + "(" + value + ")";
     }
   }
 
-  public static class Id implements Lexeme {
+  public static class Id extends Lexeme {
     private String value;
 
     public Id(String value) {
+      super("ID");
       this.value = value;
     }
 
@@ -163,7 +163,7 @@ public class Lexer {
 
     @Override
     public String toString() {
-      return "ID(" + value + ")";
+      return type + "(" + value + ")";
     }
   }
 
