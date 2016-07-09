@@ -5,8 +5,8 @@ import java.util.List;
 public class LexerTest {
 
   private static void test(String line) throws LexerErrorException {
-    List<Lexer.Lexeme> lexemes = Lexer.lex(line);
-    for (Lexer.Lexeme lexem : lexemes) {
+    List<Lexeme> lexemes = Lexer.lex(line);
+    for (Lexeme lexem : lexemes) {
       System.out.print(lexem.toString() + " ");
     }
     System.out.println();
