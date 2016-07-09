@@ -1,13 +1,17 @@
 // Author: Momchil Peychev
 
+package lexer;
+
 import java.util.List;
+
+import lexer.lexeme.Lexeme;
 
 public class LexerTest {
 
   private static void test(String line) throws LexerErrorException {
     List<Lexeme> lexemes = Lexer.lex(line);
-    for (Lexeme lexem : lexemes) {
-      System.out.print(lexem.toString() + " ");
+    for (Lexeme lexeme : lexemes) {
+      System.out.print(lexeme.toString() + " ");
     }
     System.out.println();
   }

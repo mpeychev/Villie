@@ -9,13 +9,17 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import lexer.lexeme.Lexeme;
+import lexer.Lexer;
+import lexer.LexerErrorException;
+
 public class Loader {
 
   private Logger log = Logger.getLogger(Loader.class.getName());
   private List<FunctionDefinition> functionDefinitions = new LinkedList<>();
   private List<Expression> expressions = new LinkedList<>();
 
-  public Loader(String file) throws LexerErrorException {
+  public Loader(String file) throws LexerErrorException, ParserErrorException {
     try {
       BufferedReader br = new BufferedReader(new FileReader(file));
       String line;
@@ -35,4 +39,8 @@ public class Loader {
     }
   }
 
+  @Override
+  public String toString() {
+    return functionDefinitions.toString() + "\n" + expressions.toString();
+  }
 }

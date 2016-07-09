@@ -2,6 +2,8 @@
 
 import java.util.List;
 
+import lexer.lexeme.Lexeme;
+
 public class Util {
 
   public static boolean isFunctionDefinition(List<Lexeme> lexemes) {

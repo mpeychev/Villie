@@ -2,6 +2,8 @@
 
 import java.util.List;
 
+import lexer.lexeme.Lexeme;
+
 public class Expression {
 
   private List<Lexeme> expression;
@@ -10,4 +12,8 @@ public class Expression {
     this.expression = expression;
   }
 
+  @Override
+  public String toString() {
+    return expression.toString();
+  }
 }
