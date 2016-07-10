@@ -1,6 +1,6 @@
 // Author: Momchil Peychev
 
-package lexer;
+package interpreter.lexer;
 
 public class LexerErrorException extends Exception {
 

@@ -1,4 +1,4 @@
-// Author: Momchil Peychev
+package interpreter;// Author: Momchil Peychev
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,9 +9,12 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lexer.lexeme.Lexeme;
-import lexer.Lexer;
-import lexer.LexerErrorException;
+import interpreter.lexer.lexeme.Lexeme;
+import interpreter.lexer.Lexer;
+import interpreter.lexer.LexerErrorException;
+import interpreter.parser.Expression;
+import interpreter.parser.FunctionDefinition;
+import interpreter.parser.ParserErrorException;
 
 public class Loader {
 
@@ -25,7 +28,7 @@ public class Loader {
       String line;
       while ((line = br.readLine()) != null) {
         List<Lexeme> lexemes = Lexer.lex(line);
-        if (Util.isFunctionDefinition(lexemes)) {
+        if (Utils.isFunctionDefinition(lexemes)) {
           functionDefinitions.add(new FunctionDefinition(lexemes));
         } else {
           expressions.add(new Expression(lexemes));

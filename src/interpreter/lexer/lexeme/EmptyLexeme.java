@@ -1,12 +1,12 @@
 // Author: Momchil Peychev
 
-package lexer.lexeme;
+package interpreter.lexer.lexeme;
 
-import lexer.LexerErrorException;
+import interpreter.lexer.LexerErrorException;
 
 public class EmptyLexeme extends Lexeme {
 
-  public EmptyLexeme(String type) {
+  public EmptyLexeme(LexemeType type) {
     super(type);
   }
 

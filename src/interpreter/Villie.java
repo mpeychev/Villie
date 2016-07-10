@@ -1,9 +1,10 @@
-// Author: Momchil Peychev
+package interpreter;// Author: Momchil Peychev
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import lexer.LexerErrorException;
+import interpreter.lexer.LexerErrorException;
+import interpreter.parser.ParserErrorException;
 
 public class Villie {
 
