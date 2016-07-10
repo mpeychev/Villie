@@ -11,9 +11,7 @@ For logical expressions 0 means `false` and anything else means `true`. <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| funcName(args, ...)` <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| NUM | ID` <br />
 
-Function declarations have the form <br />
-`fun funcName(args, ...) = E;` <br />
-all in one line. <br />
+Function declarations have the form `fun funcName(args, ...) = E;` all in one line. <br />
 
 The parameters names are consisted of one letter. <br />
 The function names have two or more letters. <br />
