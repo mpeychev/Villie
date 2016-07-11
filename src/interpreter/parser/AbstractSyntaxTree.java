@@ -70,19 +70,42 @@ public class AbstractSyntaxTree {
       }
     } else if (type == NodeType.E3) {
       if (nextLexemeType == LexemeType.If) {
-
+        terminals.add(expression.getNextLexeme());
+        expression.eat(LexemeType.If);
+        children.add(new AbstractSyntaxTree(NodeType.E, expression));
+        terminals.add(expression.getNextLexeme());
+        expression.eat(LexemeType.Then);
+        children.add(new AbstractSyntaxTree(NodeType.E, expression));
+        terminals.add(expression.getNextLexeme());
+        expression.eat(LexemeType.Else);
+        children.add(new AbstractSyntaxTree(NodeType.E, expression));
       } else if (nextLexemeType == LexemeType.LPar) {
-
+        terminals.add(expression.getNextLexeme());
+        expression.eat(LexemeType.LPar);
+        children.add(new AbstractSyntaxTree(NodeType.E, expression));
+        terminals.add(expression.getNextLexeme());
+        expression.eat(LexemeType.RPar);
       } else if (nextLexemeType == LexemeType.Id) {
-
+        // TODO: Distinguish between variables and function calls.
       } else if (nextLexemeType == LexemeType.Num) {
-
+        terminals.add(expression.getNextLexeme());
+        expression.eat(LexemeType.Num);
       } else {
         throw new ParserErrorException("Error parsing E3.");
       }
     } else {
       throw new ParserErrorException("Invalid node type.");
     }
+  }
+
+  public boolean isEmpty() {
+    return (terminals.isEmpty() && children.isEmpty());
+  }
+
+  public boolean isLeaf() {
+    return (type == NodeType.E3 &&
+            (terminals.get(0).getType() == LexemeType.Id
+                    || terminals.get(0).getType() == LexemeType.Num));
   }
 
 }
