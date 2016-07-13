@@ -2,13 +2,22 @@ package interpreter;// Author: Momchil Peychev
 
 import java.util.List;
 
+import interpreter.lexer.LexerErrorException;
 import interpreter.lexer.lexeme.Lexeme;
 import interpreter.lexer.lexeme.LexemeType;
 
 public class Utils {
 
   public static boolean isFunctionDefinition(List<Lexeme> lexemes) {
-    return (lexemes.size() > 0 && lexemes.get(0).getType().equals("FUN"));
+    return (lexemes.size() > 0 && lexemes.get(0).getType() == LexemeType.Fun);
+  }
+
+  public static boolean isLexemeFunctionName(Lexeme lexeme) throws LexerErrorException {
+    if (lexeme.getType() == LexemeType.Id) {
+      String name = (String) lexeme.getValue();
+      return name.length() > 1;
+    }
+    return false;
   }
 
   public static boolean isLexemeTypeCmp(LexemeType lexemeType) {

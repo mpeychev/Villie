@@ -34,4 +34,12 @@ public class FunctionDefinition {
     expression.eat(LexemeType.Equal);
   }
 
+  public String getName() {
+    return name;
+  }
+
+  public int numberOfArguments() {
+    return arguments.size();
+  }
+
 }

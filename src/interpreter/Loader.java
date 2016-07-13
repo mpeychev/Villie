@@ -4,8 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,6 +23,7 @@ public class Loader {
   private Logger log = Logger.getLogger(Loader.class.getName());
   private List<FunctionDefinition> functionDefinitions = new LinkedList<>();
   private List<Expression> expressions = new LinkedList<>();
+  private Map<String, FunctionDefinition> functionNameToDefinition = new HashMap<>();
 
   public Loader(String file) throws LexerErrorException, ParserErrorException {
     try {
@@ -40,10 +43,14 @@ public class Loader {
     } catch (IOException e) {
       e.printStackTrace();
     }
+
+    for (FunctionDefinition fd : functionDefinitions) {
+      functionNameToDefinition.put(fd.getName(), fd);
+    }
   }
 
-  @Override
-  public String toString() {
-    return functionDefinitions.toString() + "\n" + expressions.toString();
+  public Map<String, FunctionDefinition> getFunctionNameToDefinition() {
+    return functionNameToDefinition;
   }
+
 }
