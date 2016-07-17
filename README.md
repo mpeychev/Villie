@@ -23,7 +23,7 @@ LL(0) parser is used. LR was expected to produce too many states. <br/>
 Removing left-recursion grammar refactoring leads to: <br/>
 
 | | | | | | | | |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | E              | := | E<sub>1</sub>E'<sub>1</sub> | | | | | |
 | E'<sub>1</sub> | := | < E<sub>1</sub> | > E<sub>1</sub> | <= E<sub>1</sub> | >= E<sub>1</sub> | = E<sub>1</sub> | ε |
 | E<sub>1</sub>  | := | E<sub>2</sub>E'<sub>2</sub> | | | | | |
