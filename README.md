@@ -22,6 +22,7 @@ If one line of the source file contains `E;` the expression is evaluated numeric
 LL(0) parser is used. LR was expected to produce too many states. <br/>
 Removing left-recursion grammar refactoring leads to: <br/>
 
+| | | | | | | | |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | E              | := | E<sub>1</sub>E'<sub>1</sub> | | | | | |
 | E'<sub>1</sub> | := | < E<sub>1</sub> | > E<sub>1</sub> | <= E<sub>1</sub> | >= E<sub>1</sub> | = E<sub>1</sub> | ε |
