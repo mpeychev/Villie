@@ -31,3 +31,5 @@ Removing left-recursion grammar refactoring leads to: <br/>
 | E<sub>2</sub>  | := | E<sub>3</sub>E'<sub>3</sub> | | | | | |
 | E'<sub>3</sub> | := | * E<sub>3</sub>E'<sub>3</sub> | / E<sub>3</sub>E'<sub>3</sub> | ε | | | |
 | E<sub>3</sub>  | := | ID | NUM | (E) | if E then E else E | | |
+
+The end of expression symbols can be ```; , )```
