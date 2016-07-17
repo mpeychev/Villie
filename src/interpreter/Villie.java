@@ -1,4 +1,6 @@
-package interpreter;// Author: Momchil Peychev
+// Author: Momchil Peychev
+
+package interpreter;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

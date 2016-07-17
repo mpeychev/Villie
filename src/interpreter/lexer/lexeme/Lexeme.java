@@ -16,4 +16,5 @@ public abstract class Lexeme {
   }
 
   public abstract Object getValue() throws LexerErrorException;
+
 }

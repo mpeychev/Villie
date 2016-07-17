@@ -42,4 +42,8 @@ public class FunctionDefinition {
     return arguments.size();
   }
 
+  @Override
+  public String toString() {
+    return "(" + name + ": " + arguments.toString() + " = " + expression.toString() + ")";
+  }
 }

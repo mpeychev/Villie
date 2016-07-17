@@ -14,4 +14,8 @@ public class EmptyLexeme extends Lexeme {
     throw new LexerErrorException("Lexeme mismatch. Empty Lexeme expected");
   }
 
+  @Override
+  public String toString() {
+    return type.toString();
+  }
 }

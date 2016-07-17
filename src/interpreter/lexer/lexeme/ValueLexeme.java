@@ -15,4 +15,8 @@ public class ValueLexeme <T> extends Lexeme {
     return value;
   }
 
+  @Override
+  public String toString() {
+    return type.toString() + "(" + value.toString() + ")";
+  }
 }

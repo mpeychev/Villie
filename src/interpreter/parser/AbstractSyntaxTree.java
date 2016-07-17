@@ -132,4 +132,19 @@ public class AbstractSyntaxTree {
                     || terminals.get(0).getType() == LexemeType.Num));
   }
 
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(type.toString());
+    sb.append("(");
+    for (Lexeme terminal : terminals) {
+      sb.append(terminal.toString() + ",");
+    }
+    sb.append(") [");
+    for (AbstractSyntaxTree ast : children) {
+      sb.append(ast.toString() + ",");
+    }
+    sb.append("]");
+    return sb.toString();
+  }
 }
