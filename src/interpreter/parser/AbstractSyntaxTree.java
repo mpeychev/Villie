@@ -122,14 +122,20 @@ public class AbstractSyntaxTree {
     }
   }
 
-  public boolean isEmpty() {
-    return (terminals.isEmpty() && children.isEmpty());
+  public NodeType getType() {
+    return type;
   }
 
-  public boolean isLeaf() {
-    return (type == NodeType.E3 &&
-            (terminals.get(0).getType() == LexemeType.Id
-                    || terminals.get(0).getType() == LexemeType.Num));
+  public Lexeme getTerminal(int index) {
+    return terminals.get(index);
+  }
+
+  public AbstractSyntaxTree getChild(int index) {
+    return children.get(index);
+  }
+
+  public boolean isEmpty() {
+    return (terminals.isEmpty() && children.isEmpty());
   }
 
   @Override
