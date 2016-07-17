@@ -24,8 +24,8 @@ Removing left-recursion grammar refactoring leads to: <br/>
 
 E := E<sub>1</sub>E'<sub>1</sub> <br/>
 E'<sub>1</sub> := < E<sub>1</sub> | > E<sub>1</sub> | <= E<sub>1</sub> | >= E<sub>1</sub> | = E<sub>1</sub> | ε <br/>
-`E`<sub>`1`</sub>`  := E`<sub>`2`</sub>`E'`<sub>`2`</sub> <br/>
-`E'`<sub>`2`</sub>` := + E`<sub>`2`</sub>`E'`<sub>`2`</sub>` | - E`<sub>`2`</sub>`E'`<sub>`2`</sub>` | ε `<br/>
-`E`<sub>`2`</sub>`  := E`<sub>`3`</sub>`E'`<sub>`3`</sub> <br/>
-`E'`<sub>`3`</sub>` := * E`<sub>`3`</sub>`E'`<sub>`3`</sub>` | / E`<sub>`3`</sub>`E'`<sub>`3`</sub>` | ε `<br/>
-`E`<sub>`3`</sub>`  := ID | NUM | (E) | if E then E else E `<br/>
+E<sub>1</sub>  := E<sub>2</sub>E'<sub>2</sub> <br/>
+E'<sub>2</sub> := + E<sub>2</sub>E'<sub>2</sub> | - E<sub>2</sub>E'<sub>2</sub> | ε <br/>
+E<sub>2</sub>  := E<sub>3</sub>E'<sub>3</sub> <br/>
+E'<sub>3</sub> := * E<sub>3</sub>E'<sub>3</sub> | / E<sub>3</sub>E'<sub>3</sub> | ε <br/>
+E<sub>3</sub>  := ID | NUM | (E) | if E then E else E <br/>
