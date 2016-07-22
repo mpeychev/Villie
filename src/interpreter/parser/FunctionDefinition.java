@@ -38,6 +38,14 @@ public class FunctionDefinition {
     return name;
   }
 
+  public Expression getExpression() {
+    return expression;
+  }
+
+  public List<String> getArguments() {
+    return arguments;
+  }
+
   public int numberOfArguments() {
     return arguments.size();
   }
