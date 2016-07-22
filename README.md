@@ -4,6 +4,7 @@
 ##Language basics
 
 For logical expressions 0 means `false` and anything else means `true`. <br/>
+The division is integer. <br/>
 `E := (E)` <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E < E | E > E | E = E | E <= E | E >= E` (these result in true / false expression) <br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`| E + E | E - E | E * E | E / E` <br/>
