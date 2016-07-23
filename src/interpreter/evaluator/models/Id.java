@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import interpreter.Loader;
+import interpreter.loader.Loader;
 import interpreter.Utils;
 import interpreter.evaluator.RunTimeErrorException;
 import interpreter.lexer.LexerErrorException;
@@ -27,6 +27,9 @@ public class Id implements RecursiveEvaluation {
   public int evaluate(Loader loader, Map<String, Integer> closure) throws RunTimeErrorException,
           LexerErrorException, ParserErrorException {
     if (!Utils.isLexemeFunctionName(name)) {
+      if (!closure.containsKey(name.getValue())) {
+        throw new RunTimeErrorException("RunTimeError: Could not find a variable in the closure");
+      }
       return closure.get(name.getValue());
     }
 

@@ -7,6 +7,8 @@ import java.util.logging.Logger;
 
 import interpreter.evaluator.RunTimeErrorException;
 import interpreter.lexer.LexerErrorException;
+import interpreter.loader.Loader;
+import interpreter.loader.RecursiveLoader;
 import interpreter.parser.ParserErrorException;
 
 public class Villie {
@@ -20,7 +22,7 @@ public class Villie {
       return;
     }
 
-    Loader loader = new Loader(args[0]);
+    Loader loader = new RecursiveLoader(args[0]);
     loader.run();
   }
 

@@ -1,6 +1,6 @@
 // Author: Momchil Peychev
 
-package interpreter;
+package interpreter.loader;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -13,24 +13,25 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import interpreter.Utils;
 import interpreter.evaluator.EvaluationTree;
 import interpreter.evaluator.RunTimeErrorException;
 import interpreter.evaluator.models.RecursiveEvaluation;
-import interpreter.lexer.lexeme.Lexeme;
 import interpreter.lexer.Lexer;
 import interpreter.lexer.LexerErrorException;
+import interpreter.lexer.lexeme.Lexeme;
 import interpreter.parser.AbstractSyntaxTree;
 import interpreter.parser.Expression;
 import interpreter.parser.FunctionDefinition;
 import interpreter.parser.NodeType;
 import interpreter.parser.ParserErrorException;
 
-public class Loader {
+public abstract class Loader {
 
   private Logger log = Logger.getLogger(Loader.class.getName());
   private List<FunctionDefinition> functionDefinitions = new LinkedList<>();
-  private List<Expression> expressions = new LinkedList<>();
-  private Map<String, FunctionDefinition> functionNameToDefinition = new HashMap<>();
+  protected List<Expression> expressions = new LinkedList<>();
+  protected Map<String, FunctionDefinition> functionNameToDefinition = new HashMap<>();
   private Map<String, RecursiveEvaluation> functionNameToRecursiveEvaluation = new HashMap<>();
 
   public Loader(String file) throws LexerErrorException, ParserErrorException {
@@ -57,14 +58,20 @@ public class Loader {
     }
   }
 
-  public List<String> getFunctionArguments(String functionName) {
+  public List<String> getFunctionArguments(String functionName) throws RunTimeErrorException {
+    if (!functionNameToDefinition.containsKey(functionName)) {
+      throw new RunTimeErrorException("RunTimeError: Function not found.");
+    }
     return functionNameToDefinition.get(functionName).getArguments();
   }
 
   public RecursiveEvaluation getRecursiveEvaluationByName(String name) throws ParserErrorException,
-          LexerErrorException {
+          LexerErrorException, RunTimeErrorException {
     if (functionNameToRecursiveEvaluation.containsKey(name)) {
       return functionNameToRecursiveEvaluation.get(name);
+    }
+    if (!functionNameToDefinition.containsKey(name)) {
+      throw new RunTimeErrorException("RunTimeError: Function not found.");
     }
     AbstractSyntaxTree ast = new AbstractSyntaxTree(NodeType.E,
             functionNameToDefinition.get(name).getExpression(), functionNameToDefinition);
@@ -73,14 +80,7 @@ public class Loader {
     return et.toRecursiveEvaluation();
   }
 
-  public void run() throws ParserErrorException, LexerErrorException, RunTimeErrorException {
-    for (Expression expression : expressions) {
-      AbstractSyntaxTree ast = new AbstractSyntaxTree(NodeType.E, expression,
-              functionNameToDefinition);
-      EvaluationTree et = new EvaluationTree(ast);
-      System.out.println(et.toRecursiveEvaluation().evaluate(this, new HashMap<>()));
-    }
-  }
+  public abstract void run() throws ParserErrorException, LexerErrorException, RunTimeErrorException;
 
   public void debug() throws ParserErrorException, LexerErrorException {
     System.out.println("Function definitions:");

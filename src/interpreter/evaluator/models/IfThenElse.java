@@ -4,7 +4,7 @@ package interpreter.evaluator.models;
 
 import java.util.Map;
 
-import interpreter.Loader;
+import interpreter.loader.Loader;
 import interpreter.evaluator.RunTimeErrorException;
 import interpreter.lexer.LexerErrorException;
 import interpreter.parser.ParserErrorException;
