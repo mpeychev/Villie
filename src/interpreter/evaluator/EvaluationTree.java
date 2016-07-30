@@ -17,14 +17,16 @@ import interpreter.evaluator.models.Skip;
 import interpreter.evaluator.models.Sum;
 import interpreter.lexer.LexerErrorException;
 import interpreter.lexer.lexeme.Lexeme;
+import interpreter.lexer.lexeme.LexemeType;
+import interpreter.lexer.lexeme.ValueLexeme;
 import interpreter.parser.AbstractSyntaxTree;
 import interpreter.parser.NodeType;
 import interpreter.parser.ParserErrorException;
 
 public class EvaluationTree {
 
-  protected Lexeme topLevelLexeme;
-  protected List<EvaluationTree> children = new ArrayList<>();
+  private Lexeme topLevelLexeme;
+  private List<EvaluationTree> children = new ArrayList<>();
 
   public EvaluationTree(AbstractSyntaxTree ast) throws ParserErrorException, LexerErrorException {
     if (ast.getType() == NodeType.E) {
@@ -82,6 +84,10 @@ public class EvaluationTree {
     }
   }
 
+  public static EvaluationTree of(int number) {
+    return new EvaluationTree(new ValueLexeme<Integer>(LexemeType.Num, Integer.valueOf(number)));
+  }
+
   public RecursiveEvaluation toRecursiveEvaluation() throws ParserErrorException {
     if (Utils.isLexemeTypeCmp(topLevelLexeme.getType())) {
       return new Cmp(topLevelLexeme, children.get(0).toRecursiveEvaluation(),
@@ -111,6 +117,18 @@ public class EvaluationTree {
           throw new ParserErrorException("Mismatch in conversion to RecursiveEvaluation");
       }
     }
+  }
+
+  public int getNumberOfChildren() {
+    return children.size();
+  }
+
+  public EvaluationTree getChildWithIndex(int index) {
+    return children.get(index);
+  }
+
+  public Lexeme getTopLevelLexeme() {
+    return topLevelLexeme;
   }
 
   private EvaluationTree(Lexeme topLevelLexeme) {

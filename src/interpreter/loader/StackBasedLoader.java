@@ -2,19 +2,18 @@
 
 package interpreter.loader;
 
-import java.util.HashMap;
-
 import interpreter.evaluator.EvaluationTree;
 import interpreter.evaluator.RunTimeErrorException;
+import interpreter.evaluator.iterative.IterativeEvaluation;
 import interpreter.lexer.LexerErrorException;
 import interpreter.parser.AbstractSyntaxTree;
 import interpreter.parser.Expression;
 import interpreter.parser.NodeType;
 import interpreter.parser.ParserErrorException;
 
-public class RecursiveLoader extends Loader {
+public class StackBasedLoader extends Loader {
 
-  public RecursiveLoader(String file) throws LexerErrorException, ParserErrorException {
+  public StackBasedLoader(String file) throws LexerErrorException, ParserErrorException {
     super(file);
   }
 
@@ -24,7 +23,7 @@ public class RecursiveLoader extends Loader {
       AbstractSyntaxTree ast = new AbstractSyntaxTree(NodeType.E, expression,
               functionNameToDefinition);
       EvaluationTree et = new EvaluationTree(ast);
-      System.out.println(et.toRecursiveEvaluation().evaluate(this, new HashMap<>()));
+      System.out.println(IterativeEvaluation.evaluate(et, this));
     }
   }
 

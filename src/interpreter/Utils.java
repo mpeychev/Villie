@@ -14,6 +14,14 @@ public class Utils {
     return (lexemes.size() > 0 && lexemes.get(0).getType() == LexemeType.Fun);
   }
 
+  public static boolean isLexemeNum(Lexeme lexeme) {
+    return (lexeme.getType() == LexemeType.Num);
+  }
+
+  public static boolean isLexemeVariable(Lexeme lexeme) throws LexerErrorException {
+    return (lexeme.getType() == LexemeType.Id && !isLexemeFunctionName(lexeme));
+  }
+
   public static boolean isLexemeFunctionName(Lexeme lexeme) throws LexerErrorException {
     if (lexeme.getType() == LexemeType.Id) {
       String name = (String) lexeme.getValue();

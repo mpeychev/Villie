@@ -33,6 +33,7 @@ public abstract class Loader {
   protected List<Expression> expressions = new LinkedList<>();
   protected Map<String, FunctionDefinition> functionNameToDefinition = new HashMap<>();
   private Map<String, RecursiveEvaluation> functionNameToRecursiveEvaluation = new HashMap<>();
+  private Map<String, EvaluationTree> functionNameToEvaluationTree = new HashMap<>();
 
   public Loader(String file) throws LexerErrorException, ParserErrorException {
     try {
@@ -65,10 +66,10 @@ public abstract class Loader {
     return functionNameToDefinition.get(functionName).getArguments();
   }
 
-  public RecursiveEvaluation getRecursiveEvaluationByName(String name) throws ParserErrorException,
-          LexerErrorException, RunTimeErrorException {
-    if (functionNameToRecursiveEvaluation.containsKey(name)) {
-      return functionNameToRecursiveEvaluation.get(name);
+  public EvaluationTree getEvaluationTreeByName(String name) throws RunTimeErrorException,
+          ParserErrorException, LexerErrorException {
+    if (functionNameToEvaluationTree.containsKey(name)) {
+      return functionNameToEvaluationTree.get(name);
     }
     if (!functionNameToDefinition.containsKey(name)) {
       throw new RunTimeErrorException("RunTimeError: Function not found.");
@@ -76,6 +77,16 @@ public abstract class Loader {
     AbstractSyntaxTree ast = new AbstractSyntaxTree(NodeType.E,
             functionNameToDefinition.get(name).getExpression(), functionNameToDefinition);
     EvaluationTree et = new EvaluationTree(ast);
+    functionNameToEvaluationTree.put(name, et);
+    return et;
+  }
+
+  public RecursiveEvaluation getRecursiveEvaluationByName(String name) throws ParserErrorException,
+          LexerErrorException, RunTimeErrorException {
+    if (functionNameToRecursiveEvaluation.containsKey(name)) {
+      return functionNameToRecursiveEvaluation.get(name);
+    }
+    EvaluationTree et = getEvaluationTreeByName(name);
     functionNameToRecursiveEvaluation.put(name, et.toRecursiveEvaluation());
     return et.toRecursiveEvaluation();
   }
