@@ -17,9 +17,9 @@ public class IterativeEvaluation {
   public static int evaluate(EvaluationTree et, Loader loader) throws LexerErrorException,
           ParserErrorException, RunTimeErrorException {
     Stack<StackFrame> runTimeStack = new Stack<>();
-    runTimeStack.push(new StackFrame(et, new HashMap<String, Integer>()));
+    runTimeStack.push(new StackFrame(et, new HashMap<>()));
     while (true) {
-      if (runTimeStack.peek().isNum()) {
+      if (runTimeStack.size() == 1 && runTimeStack.peek().isNum()) {
         StackFrame stackFrame = runTimeStack.pop();
         return (Integer) stackFrame.getTopLevelLexeme().getValue();
       } else {

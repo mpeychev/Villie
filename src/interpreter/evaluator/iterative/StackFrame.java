@@ -118,4 +118,15 @@ public class StackFrame {
         throw new RunTimeErrorException("Cannot compute next frame to replace the top one.");
     }
   }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder(et.toString());
+    sb.append("\n");
+    sb.append(closure.toString());
+    sb.append("\n");
+    sb.append(calculatedValues.toString());
+    sb.append("\n ----- \n");
+    return sb.toString();
+  }
 }
