@@ -1,5 +1,5 @@
 # Villie
-##Interpreter of a very small subset of SML written in Java
+##Interpreter of a very small subset of SML like language written in Java
 
 ##Language basics
 
