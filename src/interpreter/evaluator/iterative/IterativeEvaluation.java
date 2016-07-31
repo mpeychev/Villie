@@ -13,7 +13,6 @@ import interpreter.parser.ParserErrorException;
 
 public class IterativeEvaluation {
 
-
   public static int evaluate(EvaluationTree et, Loader loader) throws LexerErrorException,
           ParserErrorException, RunTimeErrorException {
     Stack<StackFrame> runTimeStack = new Stack<>();
