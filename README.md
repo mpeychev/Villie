@@ -20,7 +20,7 @@ The function names have two or more letters. <br/>
 A function can be called from anywhere in the program as long as it is defined somewhere else in the same file. <br/>
 If one line of the source file contains `E;` the expression is evaluated numerically and printed on the standard output. <br/>
 
-LL(0) parser is used. LR was expected to produce too many states. <br/>
+LL(1) parser is used. LR was expected to produce too many states. <br/>
 Removing left-recursion grammar refactoring leads to: <br/>
 
 | Nonterminal | | Rule | Rule | Rule | Rule | Rule | Rule |
