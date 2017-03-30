@@ -1,7 +1,7 @@
 # Villie
-##Interpreter of a very small subset of SML like language written in Java
+## Interpreter of a very small subset of SML like language written in Java
 
-##Language basics
+## Language basics
 
 For logical expressions 0 means `false` and anything else means `true`. <br/>
 The division is integer. All intermediate results should be between -2<sup>31</sup> and 2<sup>31</sup> - 1. <br/>
@@ -33,17 +33,17 @@ Removing left-recursion grammar refactoring leads to: <br/>
 | E'<sub>3</sub> | := | * E<sub>3</sub>E'<sub>3</sub> | / E<sub>3</sub>E'<sub>3</sub> | ε | | | |
 | E<sub>3</sub>  | := | ID | NUM | (E) | if E then E else E | | |
 
-##Usage
+## Usage
 
 `java -jar Villie.jar [--argument] <source.code>` <br/>
 where `--argument` can be one of `--recursive` or `--stackBased`. <br/>
 The default abstract machine is stack based since the recursive one is prone to StackOverflow errors.
 
-##Running Tests
+## Running Tests
 
 The direcrory `tests` contains a bunch of tests. More tests can be added and they can be ran by executing `run_tests.py`.
 
-##Acknowledgements
+## Acknowledgements
 
 Courtesy goes to Georgi Gyurchev for assembling the task and the test cases back in 2012. <br/>
 I would like to thank Dr Timothy Griffin for teaching the Compiler Construction course in my Part IB year in Cambridge. <br/>
