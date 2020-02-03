@@ -46,7 +46,6 @@ The direcrory `tests` contains a bunch of tests. More tests can be added and the
 ## Acknowledgements
 
 Courtesy goes to Georgi Gyurchev for assembling the task and the test cases back in 2012. <br/>
-I would like to thank [Dr Timothy Griffin](https://www.cl.cam.ac.uk/~tgg22/) for teaching the Compiler Construction course in my Part IB year in Cambridge. <br/>
-Finally, I have to express my sincere gratitude towards [Alex Chadwick](https://www.cl.cam.ac.uk/~awc32/) for supervising me for this course (and a couple more) and for inspiring me to complete this long-pending toy project.<br/>
+I would like to thank [Dr Timothy Griffin](https://www.cl.cam.ac.uk/~tgg22/) for teaching the Compiler Construction course in my Part IB year in Cambridge and [Alex Chadwick](https://www.cl.cam.ac.uk/~awc32/) for supervising me for this course (and a couple more) and encouraging me to complete this long-pending toy project.<br/>
 
-I don't pretend the implementation to be perfect or the most efficient possible at all and by choosing Java as a main development language it must be clear that the level of abstraction is (much) higher than usual for a standard compiler/interpreter but the goal to implement a stack based interpreter that deals with simple expressions and recursive functions was successfully accomplished.
+I don't pretend that the implementation is perfect or the most efficient possible at all. In fact, by choosing Java as a main development language it must be clear that the level of abstraction is (much) higher than usual for a standard compiler/interpreter. However, the goal to implement a stack based interpreter that deals with simple expressions and recursive functions was successfully accomplished.
